@@ -7,6 +7,7 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import Cookies from "js-cookie";
+import PortalVue from "portal-vue";
 
 window.axios = axios;
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
@@ -18,6 +19,7 @@ window.Cookies = Cookies;
 
 const app = createApp(App);
 
+app.use(PortalVue);
 app.use(router);
 app.use(vuex);
 app.mount("#app");

@@ -20,15 +20,23 @@ export const store = createStore({
     isSupplier: false,
     isVendor: false,
     isAgent: false,
+    isLoggedIn: false,
   },
   mutations: {
     setUser(state, user) {
       state.user = user;
     },
+    setLoggedIn(state, isLoggedIn) {
+      console.log("setLoggedIn", isLoggedIn);
+      state.isLoggedIn = isLoggedIn;
+    },
   },
   getters: {
     user(state) {
       return state.user;
+    },
+    isLoggedIn(state) {
+      return state.isLoggedIn;
     },
   },
 });

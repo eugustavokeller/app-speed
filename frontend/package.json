@@ -9,10 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@floating-ui/vue": "^1.0.4",
     "@popperjs/core": "^2.11.8",
     "axios": "^1.6.5",
     "bootstrap": "^5.3.2",
+    "bootstrap-vue": "^2.23.1",
     "js-cookie": "^3.0.5",
+    "portal-vue": "^3.0.0-beta.0",
     "sweetalert2": "^11.10.3",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5",

@@ -46,11 +46,13 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { mapGetters, useStore } from "vuex";
 import Swal from "sweetalert2";
 
 export default {
   name: "LoginPage",
   setup() {
+    const store = useStore();
     const router = useRouter();
     const login = async () => {
       try {
@@ -60,6 +62,8 @@ export default {
         });
         const data = response.data;
         Cookies.set("access_token", data.access_token);
+        // run mutation
+        store.commit("setLoggedIn", true);
         router.push("/");
       } catch (error) {
         console.log("Chegou no erro!");
@@ -78,6 +82,14 @@ export default {
       password,
       login,
     };
+  },
+  computed: {
+    ...mapGetters(["isLogged"]),
+    mutations: {
+      setLoggedIn(state, payload) {
+        state.isLogged = payload;
+      },
+    },
   },
 };
 </script>
