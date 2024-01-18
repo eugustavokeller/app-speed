@@ -123,18 +123,19 @@
 <script>
 // import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { mapGetters, useStore } from "vuex";
 
 export default {
   name: "NavBar",
   setup() {
     const router = useRouter();
+    const store = useStore();
 
     function logout() {
-      console.log("Logout");
-      localStorage.removeItem("token");
+      Cookies.remove("access_token");
+      store.commit("setIsAuth", false);
       router.push({ name: "login" });
     }
-
     return {
       logout,
     };

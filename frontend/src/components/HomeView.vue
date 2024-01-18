@@ -1,9 +1,7 @@
 <template>
   <div id="homeview">
-    <BJumbotron>
-      <h1 class="display-3">Bem-vindo à nossa loja online</h1>
-      <p class="lead">A melhor seleção de produtos para você</p>
-    </BJumbotron>
+    <h1 class="display-3">Bem-vindo à nossa loja online</h1>
+    <p class="lead">A melhor seleção de produtos para você</p>
   </div>
 </template>
 
@@ -16,7 +14,6 @@ export default {
 
 <style scoped>
 #homeview {
-  display: flex;
   justify-content: center;
   align-items: center;
 }

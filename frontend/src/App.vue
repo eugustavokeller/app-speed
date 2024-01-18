@@ -1,38 +1,40 @@
 <script>
 import NavBar from "./components/NavBar.vue";
-import { mapGetters } from "vuex";
-import { ref, onMounted } from "vue";
+import { mapGetters, useStore } from "vuex";
+import { ref, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
 
 export default {
   components: {
     NavBar,
   },
-  computed: {
-    ...mapGetters(["isLoggedIn"]),
-  },
+
   setup() {
+    const store = useStore();
     const router = useRouter();
+    const isAuth = computed(() => store.getters.isAuth);
+
     const checkLogin = () => {
-      console.log("Checando login: ", this.isLoggedIn);
-      if (!this.isLoggedIn) {
-        console.log("Nao esta logado");
+      if (!isAuth.value) {
         router.push("/login");
-      } else console.log("Esta logado");
+      }
     };
+
+    onMounted(() => {
+      checkLogin();
+    });
+
     return {
+      isAuth,
       checkLogin,
     };
-  },
-  onMounted() {
-    this.checkLogin();
   },
 };
 </script>
 
 <template>
   <div>
-    <NavBar v-if="isLoggedIn" />
+    <NavBar v-show="isAuth" />
     <router-view></router-view>
   </div>
 </template>
