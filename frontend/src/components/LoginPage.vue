@@ -46,7 +46,6 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 
 export default {
