@@ -65,7 +65,7 @@ export default {
           password: password.value,
         });
         const data = response.data;
-        Cookies.set("access_token", data.access_token);
+        Cookies.set("access_token_app_speed", data.access_token);
         store.commit("setIsAuth", true);
         router.push("/");
       } catch (error) {

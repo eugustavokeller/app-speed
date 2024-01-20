@@ -19,7 +19,7 @@ export const store = createStore({
     // isSupplier: false,
     // isVendor: false,
     // isAgent: false,
-    isAuth: Cookies.get("access_token") ? true : false,
+    isAuth: Cookies.get("access_token_app_speed") ? true : false,
   },
   mutations: {
     setUser(state, user) {

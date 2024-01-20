@@ -37,6 +37,10 @@ class AuthController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
+        // salvar o token no banco de dados
+
+
+
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',

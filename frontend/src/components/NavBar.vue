@@ -71,10 +71,34 @@
               E-Commerce
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Vendas</a></li>
-              <li><a class="dropdown-item" href="#">Orçamentos</a></li>
-              <li><a class="dropdown-item" href="#">Notas Fiscais</a></li>
-              <li><a class="dropdown-item" href="#">Relatórios</a></li>
+              <li>
+                <router-link
+                  class="dropdown-item"
+                  :to="{ name: 'ecommerce.vendas' }"
+                  >Vendas</router-link
+                >
+              </li>
+              <li>
+                <router-link
+                  class="dropdown-item"
+                  :to="{ name: 'ecommerce.orcamentos' }"
+                  >Orçamentos</router-link
+                >
+              </li>
+              <li>
+                <router-link
+                  class="dropdown-item"
+                  :to="{ name: 'ecommerce.notas-fiscais' }"
+                  >Notas Fiscais</router-link
+                >
+              </li>
+              <li>
+                <router-link
+                  class="dropdown-item"
+                  :to="{ name: 'ecommerce.relatorios' }"
+                  >Relatórios</router-link
+                >
+              </li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -88,10 +112,34 @@
               Financeiro
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">A Receber</a></li>
-              <li><a class="dropdown-item" href="#">A Pagar</a></li>
-              <li><a class="dropdown-item" href="#">Relatorios</a></li>
-              <li><a class="dropdown-item" href="#">Outros</a></li>
+              <li>
+                <router-link
+                  class="dropdown-item"
+                  :to="{ name: 'financeiro.contas-a-receber' }"
+                  >A Receber</router-link
+                >
+              </li>
+              <li>
+                <router-link
+                  class="dropdown-item"
+                  :to="{ name: 'financeiro.contas-a-pagar' }"
+                  >A Pagar</router-link
+                >
+              </li>
+              <li>
+                <router-link
+                  class="dropdown-item"
+                  :to="{ name: 'financeiro.relatorios' }"
+                  >Relatorios</router-link
+                >
+              </li>
+              <li>
+                <router-link
+                  class="dropdown-item"
+                  :to="{ name: 'financeiro.outros' }"
+                  >Outros</router-link
+                >
+              </li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -105,10 +153,34 @@
               Ajustes
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Usuarios</a></li>
-              <li><a class="dropdown-item" href="#">Grupos</a></li>
-              <li><a class="dropdown-item" href="#">Permissoes</a></li>
-              <li><a class="dropdown-item" href="#">Outros</a></li>
+              <li>
+                <router-link
+                  class="dropdown-item"
+                  :to="{ name: 'ajustes.usuarios' }"
+                  >Usuarios</router-link
+                >
+              </li>
+              <li>
+                <router-link
+                  class="dropdown-item"
+                  :to="{ name: 'ajustes.grupos' }"
+                  >Grupos</router-link
+                >
+              </li>
+              <li>
+                <router-link
+                  class="dropdown-item"
+                  :to="{ name: 'ajustes.permissoes' }"
+                  >Permissoes</router-link
+                >
+              </li>
+              <li>
+                <router-link
+                  class="dropdown-item"
+                  :to="{ name: 'ajustes.outros' }"
+                  >Outros</router-link
+                >
+              </li>
             </ul>
           </li>
         </ul>
@@ -132,7 +204,7 @@ export default {
     const store = useStore();
 
     function logout() {
-      Cookies.remove("access_token");
+      Cookies.remove("access_token_app_speed");
       store.commit("setIsAuth", false);
       router.push({ name: "login" });
     }
